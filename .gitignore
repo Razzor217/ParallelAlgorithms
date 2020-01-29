@@ -1,0 +1,11 @@
+# ignore all
+*
+
+# unignore all with extension
+!*.*
+
+# unignore all dirs
+!*/
+
+# ignore build
+build
