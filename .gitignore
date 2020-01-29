@@ -9,3 +9,6 @@
 
 # ignore build
 build
+
+# ignore .user CMakeLists
+*.user

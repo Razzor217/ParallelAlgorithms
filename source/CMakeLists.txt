@@ -1,9 +1,18 @@
+find_package(Eigen3)
+if(Eigen3_FOUND)
+    include_directories(${Eigen3_INCLUDE_DIR})
+endif()
+
 set(SOURCES 
     main.cpp
     )
 
 set(HEADERS
-    GlobalAND.h
+    ./LinearAlgebra/MatrixMultiplication.h
+
+    ./PRAM-CRCW/GlobalAND.h
+    ./PRAM-CRCW/GlobalOR.h
+    ./PRAM-CRCW/Maximum.h
     )
 
 add_executable(parallel_algorithms ${HEADERS} ${SOURCES})
