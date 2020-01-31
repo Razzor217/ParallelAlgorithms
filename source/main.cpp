@@ -2,50 +2,34 @@
 #include <chrono>
 #include <iostream>
 
-#include "PRAM-CRCW/Maximum.h"
+#include "LinearAlgebra/MatrixMultiplication.h"
 
-int maximum(std::vector<int>& a, int& maximum)
-{
-    maximum = 0;
-    int index = 0;
-    for (size_t i = 0; i < a.size(); ++i)
-    {
-        if (a[i] > maximum)
-        {
-            maximum = a[i];
-            index = i;
-        }
-    }
-    return index;
-}
+#include "PRAM-CRCW/GlobalAND.h"
+#include "PRAM-CRCW/GlobalOR.h"
+#include "PRAM-CRCW/Maximum.h"
 
 int main() {
 
-    const size_t size = 200000;
-    std::vector<int> a(size, 1);
-    a[0] = 2;
-    std::vector<bool> m;
-    int max;
-    
-    std::cout << "Vector size: " << a.size() << std::endl;
+    // TODO: Boost Unit Tests for algorithms
+
+    Eigen::MatrixXf a(4, 4);
+    Eigen::MatrixXf b(4, 4);
+
+    a << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16;
+    b = 2 * Eigen::Matrix4f::Identity();
+
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
 
     auto start = std::chrono::system_clock::now();
-    pram::maximum_omp(a, m);
+    auto c = algebra::matrix_mult_omp(a, b);
     auto end = std::chrono::system_clock::now();
 
     std::cout << "Parallel computation took " 
         << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() 
         << " Microseconds.\n";
 
-    start = std::chrono::system_clock::now();
-    int index = maximum(a, max);
-    end = std::chrono::system_clock::now();
+    std::cout << c << std::endl;
 
-    std::cout << "Sequential computation took " 
-        << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() 
-        << " Microseconds.\n";
-
-    std::cout << "Parallel maximum at index 0: " << m[0] << std::endl;
-    std::cout << "Sequential maximum at index 0: " << index << std::endl;
     return 0;
 }
