@@ -4,10 +4,16 @@
 
 namespace algebra
 {
-    // Todo: simplest matrix multiplication algorithm with
-    // #processing units = (#elements)^2
-
- 
+    /**
+     * Theoretical algorithm for matrix multiplication in CRCW PRAM.
+     * Implementation for square matrices in R^(n x n).
+     *
+     * Feasible for #processing units = n^2
+     *
+     * @param a Left matrix in R^(n x n)
+     * @param b right matrix in R^(n x n)
+     * @return resulting matrix in R^(n x n)
+     */
     Eigen::MatrixXf matrix_mult_omp(Eigen::MatrixXf& a, Eigen::MatrixXf& b)
     {
         // quadratic matrices
@@ -28,4 +34,6 @@ namespace algebra
         }
         return c;
     }
+
+
 }

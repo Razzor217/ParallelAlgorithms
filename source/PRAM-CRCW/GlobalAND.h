@@ -5,9 +5,12 @@
 
 namespace pram
 {
-    /*
-     * Theoretical algorithm for global AND in CRCW PRAM
+    /**
+     * Theoretical algorithm for global AND in CRCW PRAM.
      * Feasible for #processing units = #elements
+     *
+     * @param a Vector of unit literals
+     * @return true iff all elements are true, false otherwise
      */
     bool global_and_omp(std::vector<bool>& a)
     {
