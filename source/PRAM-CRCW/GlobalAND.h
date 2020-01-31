@@ -1,13 +1,22 @@
+/**
+ * @file GlobalAND.h
+ *
+ * @brief Implementation of parallel global AND for CRCW PRAM.
+ */
+
 #pragma once
 
-#include <omp.h>
 #include <vector>
 
 namespace pram
 {
-    /*
-     * Theoretical algorithm for global AND in CRCW PRAM
-     * Feasible for #processing units = #elements
+    /**
+     * @brief Theoretical algorithm for global AND in CRCW PRAM.
+     *
+     * Feasible for (number of processing units) = (number of elements)
+     *
+     * @param a Vector of unit literals
+     * @return true iff all elements are true, false otherwise
      */
     bool global_and_omp(std::vector<bool>& a)
     {

@@ -1,15 +1,24 @@
+/**
+ * @file Maximum.h
+ *
+ * @brief Implementation of theoretical algorithms.
+ */
+
 #pragma once
 
-#include <omp.h>
 #include <vector>
 
 #include "GlobalAND.h"
 
 namespace pram
 {
-    /*
-     * Theoretical algorithm for maximum computation in CRCW PRAM
-     * Feasible for #processing units = (#elements)^2
+    /**
+     * @brief Theoretical algorithm for maximum computation in CRCW PRAM.
+     *
+     * Feasible for (number of processing units) = ( number of elements)^2
+     *
+     * @param[in] a Vector of integers whose maximum is to be determined
+     * @param[out] m Vector of unit literals, true represents maximum element
      */
     void maximum_omp(std::vector<int>& a, std::vector<bool>& m)
     {
