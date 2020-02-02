@@ -31,10 +31,10 @@ namespace algebra
      * Can only be used with square matrices.
      * For a generalization, @see matrix_mult_mpi_cannon_batch()
      * 
-     * @param a[in] Left matrix of size n x n
-     * @param b[in] Right matrix of size n x n
-     * @param c[inout] Resulting matrix of size n x n
-     * @param comm[in] MPI Communicator
+     * @param[in] a Left matrix of size n x n
+     * @param[in] b Right matrix of size n x n
+     * @param[inout] c Resulting matrix of size n x n
+     * @param[in] comm MPI Communicator
      */
     void matrix_mult_mpi_cannon(Eigen::MatrixXf& a, 
         Eigen::MatrixXf& b, 
@@ -50,10 +50,10 @@ namespace algebra
      * (n / m) x (n / m) matrices.
      * For m = n, @see matrix_mult_mpi_cannon()
      *
-     * @param a[in] Left matrix of size n x n
-     * @param b[in] Right matrix of size n x n
-     * @param c[inout] Resulting matrix of size n x n
-     * @param comm[in] MPI Communicator
+     * @param[in] a Left matrix of size n x n
+     * @param[in] b Right matrix of size n x n
+     * @param[inout] c Resulting matrix of size n x n
+     * @param[in] comm MPI Communicator
      */
     void matrix_mult_mpi_cannon_batch(Eigen::MatrixXf& a, 
         Eigen::MatrixXf& b, 
