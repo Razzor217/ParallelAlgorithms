@@ -7,6 +7,8 @@
 #include "PRAM-CRCW/GlobalOR.h"
 #include "PRAM-CRCW/Maximum.h"
 
+#include "Dummy.h"
+
 int main() {
 
     // TODO: Boost Unit Tests for algorithms

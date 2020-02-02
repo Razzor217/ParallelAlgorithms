@@ -12,3 +12,6 @@ build
 
 # ignore .user CMakeLists
 *.user
+
+# ignore .DS_Store
+*.DS_Store
