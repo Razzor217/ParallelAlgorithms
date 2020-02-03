@@ -31,7 +31,8 @@ namespace algebra
      * Distributed memory algorithm which uses 
      * (number of processing units) = (number of rows)^2.
      * Can only be used with square matrices.
-     * For a generalization, @see matrix_mult_mpi_cannon_batch()
+     * 
+     * @see matrix_mult_mpi_cannon_batch()
      * 
      * @param[in] a Left matrix of size n x n
      * @param[in] b Right matrix of size n x n
@@ -50,7 +51,8 @@ namespace algebra
      * into smaller sub-matrices. Let m := sqrt(p). Then n x n matrix 
      * multiplication is broken down into several multiplications of 
      * (n / m) x (n / m) matrices.
-     * For m = n, @see matrix_mult_mpi_cannon()
+     * 
+     * @see matrix_mult_mpi_cannon()
      *
      * @param[in] a Left matrix of size n x n
      * @param[in] b Right matrix of size n x n
@@ -58,6 +60,22 @@ namespace algebra
      * @param[in] comm MPI Communicator
      */
     void matrix_mult_mpi_cannon_batch(Eigen::MatrixXf& a, 
+        Eigen::MatrixXf& b, 
+        Eigen::MatrixXf& c, 
+        MPI_Comm comm);
+
+    /**
+     * @brief MPI implementation of matrix multiplication adapted from 
+     * Dekel, Nassimi and Sahni.
+     *
+     * 
+     *
+     * @param[in] a Left matrix of size n x n
+     * @param[in] b Right matrix of size n x n
+     * @param[inout] c Resulting matrix of size n x n
+     * @param[in] comm MPI Communicator
+     */
+    void matrix_mult_mpi_dns(Eigen::MatrixXf& a, 
         Eigen::MatrixXf& b, 
         Eigen::MatrixXf& c, 
         MPI_Comm comm);

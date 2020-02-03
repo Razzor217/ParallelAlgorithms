@@ -173,4 +173,14 @@ namespace algebra
             MPI_Recv(b1.data(), (n / m) * (n / m), MPI_FLOAT, m * ((i + 1) % m) + j, 0, comm, &status);
         }
     }
+
+    void matrix_mult_mpi_dns(Eigen::MatrixXf& a, 
+        Eigen::MatrixXf& b, 
+        Eigen::MatrixXf& c, 
+        MPI_Comm comm)
+    {
+        /*
+         * source code goes here.
+         */
+    }
 }
