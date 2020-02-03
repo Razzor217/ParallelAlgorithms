@@ -7,6 +7,8 @@
 #pragma once
 
 #include <eigen3/Eigen/Eigen>
+#include <cmath>
+
 #include <mpi.h>
 
 namespace algebra
